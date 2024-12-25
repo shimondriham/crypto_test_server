@@ -6,8 +6,10 @@ const router = express.Router();
 const apikey = "5D585955-6480-4964-B6B5-CD16D3FB883A"
 
 
-router.get("/", auth, async (req, res, next) => {
-    let limit = req.body.limit;
+router.get("/:limit", auth, async (req, res, next) => {
+    const limit = req.params.limit;
+    // let limit = req.body.limit;
+    console.log(limit)
     if(!limit){
         return res.status(400).json("limit was not received");
     }
